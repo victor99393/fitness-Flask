@@ -1,0 +1,373 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Meu Perfil - FitnessFY
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/profile.css') }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section id="profile-page">
+
+
+    <!-- =====================================================
+         CABEÇALHO DO PERFIL
+         ===================================================== -->
+
+    <section id="profile-header">
+
+
+        <div id="profile-avatar">
+
+            {{ nome[0]|upper if nome else "U" }}
+
+        </div>
+
+
+        <div id="profile-heading">
+
+            <p id="profile-label">
+                MEU PERFIL
+            </p>
+
+            <h1>
+                Olá, {{ nome }}!
+            </h1>
+
+            <p id="profile-email">
+                {{ email }}
+            </p>
+
+        </div>
+
+
+        <!-- SAIR -->
+
+        <a
+            href="{{ url_for('login') }}"
+            id="logout-button"
+        >
+            Sair
+        </a>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <section id="profile-content">
+
+
+        <!-- =================================================
+             INFORMAÇÕES PESSOAIS
+             ================================================= -->
+
+        <article class="profile-card">
+
+
+            <div class="card-header">
+
+                <div class="card-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <h2>
+                        Informações pessoais
+                    </h2>
+
+                    <p>
+                        Seus principais dados
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="personal-info">
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Nome
+                    </span>
+
+                    <strong>
+                        {{ nome }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        E-mail
+                    </span>
+
+                    <strong>
+                        {{ email }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Idade
+                    </span>
+
+                    <strong>
+                        {{ idade }} anos
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Peso
+                    </span>
+
+                    <strong>
+                        {{ peso }} kg
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Altura
+                    </span>
+
+                    <strong>
+                        {{ altura }} m
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             DADOS FÍSICOS
+             ================================================= -->
+
+        <article class="profile-card">
+
+
+            <div class="card-header">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <h2>
+                        Dados físicos
+                    </h2>
+
+                    <p>
+                        Acompanhe suas medidas
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="physical-data">
+
+
+                <div class="physical-item">
+
+                    <span>
+                        Peso
+                    </span>
+
+                    <strong>
+                        {{ peso }} kg
+                    </strong>
+
+                </div>
+
+
+                <div class="physical-item">
+
+                    <span>
+                        Altura
+                    </span>
+
+                    <strong>
+                        {{ altura }} m
+                    </strong>
+
+                </div>
+
+
+                <div class="physical-item">
+
+                    <span>
+                        IMC
+                    </span>
+
+                    <strong>
+                        {% if imc %}
+                            {{ imc }}
+                        {% else %}
+                            Não calculado
+                        {% endif %}
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <a
+                id="imc-button"
+                href="{{ url_for('imc', user_id=user_id, peso=peso, altura=altura) }}"
+            >
+
+                Ver meu IMC
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </article>
+
+
+        <!-- =================================================
+             OBJETIVOS
+             ================================================= -->
+
+        <article
+            class="profile-card"
+            id="goals-card"
+        >
+
+
+            <div class="card-header">
+
+                <div class="card-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <h2>
+                        Seus objetivos
+                    </h2>
+
+                    <p>
+                        Cuide da sua saúde todos os dias
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="goals-list">
+
+
+                <div class="goal">
+
+                    <span class="goal-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Acompanhar meu IMC
+                        </strong>
+
+                        <p>
+                            Consulte regularmente seus indicadores.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <span class="goal-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Manter uma rotina saudável
+                        </strong>
+
+                        <p>
+                            Cuide da alimentação e pratique atividades físicas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <span class="goal-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Acompanhar meu progresso
+                        </strong>
+
+                        <p>
+                            Observe suas informações ao longo do tempo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+</section>
+
+{% endblock %}

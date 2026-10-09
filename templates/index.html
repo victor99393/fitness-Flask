@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}
+    FitnessFY - Saúde & Bem-Estar
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section id="home-page">
+
+    <!-- HERO -->
+    <section id="hero">
+
+        <div id="hero-content">
+
+            <span id="hero-tag">
+                FITNESSFY
+            </span>
+
+            <h1>
+                Cuide do seu corpo.
+                <br>
+                <span>Cuide de você.</span>
+            </h1>
+
+            <p id="hero-description">
+                Uma forma simples de acompanhar seus indicadores,
+                organizar suas informações e cuidar melhor da sua saúde.
+            </p>
+
+            <div id="hero-buttons">
+
+                <!-- COMEÇAR AGORA → LOGIN -->
+                <a
+                    href="{{ url_for('login') }}"
+                    id="hero-primary-button"
+                >
+                    Comece agora
+                    <span>→</span>
+                </a>
+
+                <!-- CONHEÇA O FITNESSFY → SOBRE -->
+                <a
+                    href="{{ url_for('about') }}"
+                    id="hero-secondary-button"
+                >
+                    Conheça o FitnessFY
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ELEMENTO DECORATIVO -->
+        <div id="hero-decoration">
+
+            <div id="hero-circle-large"></div>
+
+            <div id="hero-circle-small"></div>
+
+            <div id="hero-stat-card">
+
+                <span id="hero-stat-icon">
+                    ♥
+                </span>
+
+                <div>
+                    <strong>Saúde</strong>
+
+                    <p>
+                        começa com cuidado
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARDS INFORMATIVOS -->
+    <section id="quick-info">
+
+        <article class="info-card">
+
+            <div class="info-card-icon">
+                📊
+            </div>
+
+            <div>
+
+                <strong>
+                    Acompanhe seus dados
+                </strong>
+
+                <p>
+                    Tenha suas principais informações
+                    organizadas em um só lugar.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-card-icon">
+                ⚖️
+            </div>
+
+            <div>
+
+                <strong>
+                    Conheça seus indicadores
+                </strong>
+
+                <p>
+                    Consulte informações relacionadas
+                    ao seu peso, altura e IMC.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-card-icon">
+                🎯
+            </div>
+
+            <div>
+
+                <strong>
+                    Acompanhe seu progresso
+                </strong>
+
+                <p>
+                    Mantenha suas informações atualizadas
+                    e acompanhe sua evolução.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- SOBRE O FITNESSFY -->
+    <section id="home-about">
+
+        <div id="home-about-content">
+
+            <span>
+                SOBRE O FITNESSFY
+            </span>
+
+            <h2>
+                Tecnologia para
+                cuidar de você.
+            </h2>
+
+            <p>
+                O FitnessFY foi desenvolvido para oferecer
+                uma maneira simples e organizada de acompanhar
+                informações relacionadas à saúde e ao bem-estar.
+            </p>
+
+            <!-- CONHEÇA O FITNESSFY → SOBRE -->
+            <a href="{{ url_for('about') }}">
+
+                Conheça o FitnessFY
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- ELEMENTO DECORATIVO -->
+        <div id="home-about-decoration">
+
+            <div class="about-decoration-circle"></div>
+
+            <div class="about-mini-card">
+
+                <span>
+                    ♥
+                </span>
+
+                <strong>
+                    Saúde & Bem-Estar
+                </strong>
+
+                <small>
+                    Informação para cuidar melhor de você.
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}

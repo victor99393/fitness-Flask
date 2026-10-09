@@ -1,0 +1,165 @@
+<section id="math-calculator">
+
+    <div id="math-header">
+        <span id="math-icon">🧮</span>
+
+        <div>
+            <h2>Calculadora Matemática</h2>
+            <p>Faça operações matemáticas de forma rápida.</p>
+        </div>
+    </div>
+
+
+    <form id="math-form">
+
+        <div class="math-field">
+
+            <label for="math-number-1">
+                Primeiro número
+            </label>
+
+            <input
+                type="number"
+                id="math-number-1"
+                name="a"
+                step="any"
+                placeholder="Ex.: 10"
+                required
+            >
+
+        </div>
+
+
+        <div class="math-field">
+
+            <label for="math-operation">
+                Operação
+            </label>
+
+            <select
+                id="math-operation"
+                name="op"
+                required
+            >
+                <option value="soma">+ Soma</option>
+                <option value="subtracao">− Subtração</option>
+                <option value="multiplicacao">× Multiplicação</option>
+                <option value="divisao">÷ Divisão</option>
+            </select>
+
+        </div>
+
+
+        <div class="math-field">
+
+            <label for="math-number-2">
+                Segundo número
+            </label>
+
+            <input
+                type="number"
+                id="math-number-2"
+                name="b"
+                step="any"
+                placeholder="Ex.: 5"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="math-submit"
+        >
+            Calcular
+        </button>
+
+    </form>
+
+
+    <div
+        id="math-error"
+        role="alert"
+        hidden
+    ></div>
+
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("math-form");
+
+    if (!form) {
+        return;
+    }
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const number1 =
+            document.getElementById("math-number-1").value;
+
+        const number2 =
+            document.getElementById("math-number-2").value;
+
+        const operation =
+            document.getElementById("math-operation").value;
+
+        const error =
+            document.getElementById("math-error");
+
+
+        error.hidden = true;
+        error.textContent = "";
+
+
+        if (number1 === "" || number2 === "") {
+            error.textContent =
+                "Preencha os dois números.";
+
+            error.hidden = false;
+            return;
+        }
+
+
+        const a = Number(number1);
+        const b = Number(number2);
+
+
+        if (!Number.isFinite(a) || !Number.isFinite(b)) {
+            error.textContent =
+                "Digite números válidos.";
+
+            error.hidden = false;
+            return;
+        }
+
+
+        if (operation === "divisao" && b === 0) {
+            error.textContent =
+                "Não é possível dividir por zero.";
+
+            error.hidden = false;
+            return;
+        }
+
+
+        const url =
+            "/math/" +
+            encodeURIComponent(operation) +
+            "/" +
+            encodeURIComponent(a) +
+            "/" +
+            encodeURIComponent(b);
+
+
+        window.location.href = url;
+
+    });
+
+});
+</script>

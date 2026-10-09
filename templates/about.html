@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Sobre - FitnessFY
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% include "header.html" %}
+
+<section id="about-page">
+
+    <!-- HERO -->
+    <section id="about-hero">
+
+        <span id="about-label">
+            SOBRE O FITNESSFY
+        </span>
+
+        <h1>
+            Tecnologia para cuidar
+            <span>da sua saúde.</span>
+        </h1>
+
+        <p>
+            O FitnessFY é um projeto desenvolvido para facilitar
+            o acompanhamento de informações relacionadas à saúde
+            e ao bem-estar de forma simples e organizada.
+        </p>
+
+    </section>
+
+
+    <!-- MISSÃO -->
+    <section id="mission-section">
+
+        <article class="about-card">
+
+            <span class="about-card-icon">
+                🎯
+            </span>
+
+            <div>
+
+                <span class="about-card-label">
+                    NOSSA MISSÃO
+                </span>
+
+                <h2>
+                    Simplificar o cuidado com a saúde.
+                </h2>
+
+                <p>
+                    O FitnessFY busca reunir informações e ferramentas
+                    úteis em um único lugar, permitindo que o usuário
+                    acompanhe seus dados e consulte seus indicadores
+                    de maneira prática.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="about-card">
+
+            <span class="about-card-icon">
+                💚
+            </span>
+
+            <div>
+
+                <span class="about-card-label">
+                    NOSSO OBJETIVO
+                </span>
+
+                <h2>
+                    Informação de forma simples.
+                </h2>
+
+                <p>
+                    O projeto foi criado com foco em uma experiência
+                    clara, organizada e fácil de utilizar, aproximando
+                    tecnologia e saúde.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- DESENVOLVEDORES -->
+    <section id="developers-section">
+
+        <div id="developers-header">
+
+            <span id="developers-label">
+                NOSSA EQUIPE
+            </span>
+
+            <h2>
+                Desenvolvedores
+            </h2>
+
+            <p>
+                Conheça as pessoas responsáveis pelo desenvolvimento
+                do FitnessFY.
+            </p>
+
+        </div>
+
+
+        <section id="developers-grid">
+
+            <!-- ISAAC -->
+            <article class="developer-card">
+
+                <div class="developer-photo">
+
+                    <img
+                        src="{{ url_for('static', filename='images/devs/isaac_silva.webp') }}"
+                        alt="Isaac Silva"
+                    >
+
+                </div>
+
+                <div class="developer-info">
+
+                    <h3>
+                        Isaac Silva
+                    </h3>
+
+                    <p>
+                        Desenvolvedor
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- LUCAS -->
+            <article class="developer-card">
+
+                <div class="developer-photo">
+
+                    <img
+                        src="{{ url_for('static', filename='images/devs/lucas_conceicao.webp') }}"
+                        alt="Lucas Conceição"
+                    >
+
+                </div>
+
+                <div class="developer-info">
+
+                    <h3>
+                        Lucas Conceição
+                    </h3>
+
+                    <p>
+                        Desenvolvedor
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- RITHYE -->
+            <article class="developer-card">
+
+                <div class="developer-photo">
+
+                    <img
+                        src="{{ url_for('static', filename='images/devs/rithye_amaral.webp') }}"
+                        alt="Rithye Amaral"
+                    >
+
+                </div>
+
+                <div class="developer-info">
+
+                    <h3>
+                        Rithye Amaral
+                    </h3>
+
+                    <p>
+                        Desenvolvedor
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- VICTOR -->
+            <article class="developer-card">
+
+                <div class="developer-photo">
+
+                    <img
+                        src="{{ url_for('static', filename='images/devs/victor_augusto.webp') }}"
+                        alt="Victor Augusto"
+                    >
+
+                </div>
+
+                <div class="developer-info">
+
+                    <h3>
+                        Victor Augusto
+                    </h3>
+
+                    <p>
+                        Desenvolvedor
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </section>
+
+
+    <!-- RECURSOS -->
+    <section id="resources-section">
+
+        <div id="resources-header">
+
+            <span id="resources-label">
+                RECURSOS
+            </span>
+
+            <h2>
+                O que o FitnessFY oferece
+            </h2>
+
+        </div>
+
+
+        <section id="resources-grid">
+
+            <!-- ACOMPANHAMENTO -->
+            <article class="resource-card">
+
+                <span class="resource-icon">
+                    📊
+                </span>
+
+                <h3>
+                    Acompanhamento
+                </h3>
+
+                <p>
+                    Visualize suas principais informações pessoais
+                    e físicas.
+                </p>
+
+            </article>
+
+
+            <!-- IMC -->
+            <article class="resource-card">
+
+                <span class="resource-icon">
+                    ⚖️
+                </span>
+
+                <h3>
+                    Cálculo de IMC
+                </h3>
+
+                <p>
+                    Calcule seu IMC e consulte sua classificação.
+                </p>
+
+            </article>
+
+
+            <!-- CALCULADORA -->
+            <article class="resource-card">
+
+                <span class="resource-icon">
+                    🧮
+                </span>
+
+                <h3>
+                    Calculadora
+                </h3>
+
+                <p>
+                    Realize operações matemáticas de maneira
+                    rápida e simples.
+                </p>
+
+            </article>
+
+
+            <!-- INDICADORES -->
+            <article class="resource-card">
+
+                <span class="resource-icon">
+                    📈
+                </span>
+
+                <h3>
+                    Indicadores
+                </h3>
+
+                <p>
+                    Consulte informações calculadas a partir
+                    dos seus dados.
+                </p>
+
+            </article>
+
+        </section>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section id="about-final">
+
+        <span>
+            FITNESSFY
+        </span>
+
+        <h2>
+            Saúde &amp; Bem-Estar
+        </h2>
+
+        <p>
+            Uma aplicação desenvolvida para unir
+            tecnologia, informação e cuidado.
+        </p>
+
+    </section>
+
+</section>
+
+{% endblock %}
