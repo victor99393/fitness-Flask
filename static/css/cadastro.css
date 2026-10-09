@@ -1,0 +1,592 @@
+/* =========================================================
+   CADASTRO
+   ========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body:has(#register-page) {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+#register-page {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 120px);
+
+    padding: 0 0 60px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CARROSSEL
+   ========================================================= */
+
+#carousel {
+    position: relative;
+
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+#carousel-track {
+    display: flex;
+
+    width: max-content;
+    height: 270px;
+
+    animation: carousel-move 42s linear infinite;
+}
+
+#carousel-track img {
+    width: 260px;
+    height: 270px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    filter: brightness(0.55) saturate(0.85);
+
+    display: block;
+}
+
+
+/* =========================================================
+   GRADIENTE SOBRE O CARROSSEL
+   ========================================================= */
+
+#carousel::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 150px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #001512
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+   ========================================================= */
+
+@keyframes carousel-move {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-1820px);
+    }
+
+}
+
+
+/* =========================================================
+   CHUVA
+   ========================================================= */
+
+#rain {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+#rain::before {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -100%;
+
+    width: 300%;
+    height: 300%;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.75) 0 1.5px,
+            transparent 2px
+        );
+
+    background-size: 180px 180px;
+
+    animation:
+        rain-fall 4s linear infinite;
+}
+
+#rain::after {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -100%;
+
+    width: 300%;
+    height: 300%;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.45) 0 1.2px,
+            transparent 2px
+        );
+
+    background-size: 260px 260px;
+
+    animation:
+        rain-fall-slow 7s linear infinite;
+}
+
+@keyframes rain-fall {
+
+    from {
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        transform: translate3d(8%, 20%, 0);
+    }
+
+}
+
+@keyframes rain-fall-slow {
+
+    from {
+        transform: translate3d(0, -15%, 0);
+    }
+
+    to {
+        transform: translate3d(-6%, 25%, 0);
+    }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+#register-container {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(450px, calc(100% - 30px));
+
+    margin: -35px auto 60px;
+
+    padding: 35px 32px 32px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(0, 18, 16, 0.88);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+#register-logo {
+    display: block;
+
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    margin: 0 auto 10px;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+#register-container h1 {
+    margin: 0;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 29px;
+}
+
+#register-subtitle {
+    margin: 8px 0 26px;
+
+    text-align: center;
+
+    color: #8ba09f;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ERRO
+   ========================================================= */
+
+#register-error {
+    margin: 0 0 18px;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(255, 80, 80, 0.20);
+
+    border-radius: 11px;
+
+    background: rgba(255, 50, 50, 0.08);
+
+    color: #ff9c9c;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+#register-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#register-form label {
+    margin-top: 5px;
+
+    color: #c7d8d7;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#register-form input {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#register-form input::placeholder {
+    color: #627170;
+}
+
+#register-form input:focus {
+    border-color: rgba(83, 215, 200, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    box-shadow:
+        0 0 0 3px rgba(83, 215, 200, 0.08);
+}
+
+
+/* =========================================================
+   SENHA
+   ========================================================= */
+
+#password-container {
+    position: relative;
+
+    width: 100%;
+}
+
+#password-container input {
+    padding-right: 55px;
+}
+
+#toggle-password {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    width: 38px;
+    height: 38px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #9eb5b3;
+
+    cursor: pointer;
+}
+
+#toggle-password:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+}
+
+#toggle-password svg {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+#eye-closed {
+    display: none;
+}
+
+
+/* =========================================================
+   CAPS LOCK
+   ========================================================= */
+
+#caps-warning {
+    margin: 2px 0 4px;
+
+    color: #ffd166;
+
+    font-size: 12px;
+}
+
+#caps-warning[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   BOTÃO CRIAR CONTA
+   ========================================================= */
+
+#register-button {
+    width: 100%;
+
+    min-height: 49px;
+
+    margin-top: 12px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #37bfb0,
+            #187b72
+        );
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+#register-button:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+}
+
+#register-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   LINK PARA LOGIN
+   ========================================================= */
+
+#login-link {
+    margin: 20px 0 0;
+
+    text-align: center;
+
+    color: #7f8c8f;
+
+    font-size: 13px;
+}
+
+#login-link a {
+    color: #70d9cc;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+#login-link a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    #register-page {
+        min-height: calc(100vh - 100px);
+
+        padding-bottom: 40px;
+    }
+
+    #carousel {
+        height: 220px;
+    }
+
+    #carousel-track {
+        height: 220px;
+    }
+
+    #carousel-track img {
+        width: 210px;
+        height: 220px;
+    }
+
+    #register-container {
+        width: calc(100% - 20px);
+
+        margin-top: -25px;
+
+        padding: 28px 20px 25px;
+
+        border-radius: 20px;
+    }
+
+    #register-logo {
+        width: 125px;
+        height: 125px;
+    }
+
+    #register-container h1 {
+        font-size: 25px;
+    }
+
+    #register-subtitle {
+        margin-bottom: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #carousel-track,
+    #rain::before,
+    #rain::after {
+        animation: none;
+    }
+
+    #register-button,
+    #login-link a {
+        transition: none;
+    }
+
+}

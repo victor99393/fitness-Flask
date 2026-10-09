@@ -1,0 +1,495 @@
+#about-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 20px 70px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+#about-hero {
+    max-width: 780px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+#about-label {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #5de4d0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#about-hero h1 {
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+#about-hero h1 span {
+    color: #39d98a;
+}
+
+#about-hero p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #8d9b9e;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   MISSÃO
+   ============================================================ */
+
+#mission-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 70px;
+}
+
+.about-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 28px;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    border-color: #285457;
+}
+
+.about-card-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 20px;
+}
+
+.about-card-label {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #5de4d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.about-card h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+.about-card p {
+    margin: 0;
+
+    color: #7f9093;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   DESENVOLVEDORES
+   ============================================================ */
+
+#developers-section {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+#developers-header {
+    margin-bottom: 25px;
+}
+
+#developers-label {
+    display: inline-block;
+    margin-bottom: 8px;
+
+    color: #5de4d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#developers-header h2 {
+    margin: 0 0 7px;
+
+    color: #ffffff;
+    font-size: 28px;
+}
+
+#developers-header p {
+    margin: 0;
+
+    color: #7f9093;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   GRID DOS DESENVOLVEDORES
+   ============================================================ */
+
+#developers-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.developer-card {
+    overflow: hidden;
+
+    border: 1px solid #183436;
+    border-radius: 16px;
+
+    background: rgba(5, 22, 22, 0.82);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #285457;
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ============================================================
+   FOTOS
+   ============================================================ */
+
+.developer-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #061615;
+}
+
+.developer-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.developer-card:hover .developer-photo img {
+    transform: scale(1.04);
+}
+
+
+/* ============================================================
+   INFORMAÇÕES DOS DESENVOLVEDORES
+   ============================================================ */
+
+.developer-info {
+    padding: 17px 16px 19px;
+}
+
+.developer-info h3 {
+    margin: 0 0 5px;
+
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.developer-info p {
+    margin: 0;
+
+    color: #6f8083;
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   RECURSOS
+   ============================================================ */
+
+#resources-section {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+#resources-header {
+    margin-bottom: 25px;
+}
+
+#resources-label {
+    display: inline-block;
+    margin-bottom: 8px;
+
+    color: #5de4d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#resources-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: 28px;
+}
+
+
+/* ============================================================
+   GRID DE RECURSOS
+   ============================================================ */
+
+#resources-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.resource-card {
+    min-width: 0;
+
+    padding: 22px;
+
+    border: 1px solid #183436;
+    border-radius: 15px;
+
+    background: rgba(5, 22, 22, 0.72);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+    border-color: #285457;
+}
+
+.resource-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 11px;
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 18px;
+}
+
+.resource-card h3 {
+    margin: 0 0 7px;
+
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.resource-card p {
+    margin: 0;
+
+    color: #718386;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   FINAL
+   ============================================================ */
+
+#about-final {
+    width: 100%;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    border: 1px solid rgba(57, 217, 138, 0.14);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(57, 217, 138, 0.06),
+            rgba(5, 22, 22, 0.75)
+        );
+}
+
+#about-final > span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #5de4d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#about-final h2 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+    font-size: 23px;
+}
+
+#about-final p {
+    margin: 0;
+
+    color: #718386;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 850px) {
+
+    #mission-section {
+        grid-template-columns: 1fr;
+    }
+
+    #developers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    #about-page {
+        padding: 35px 15px 55px;
+    }
+
+    #about-hero {
+        margin-bottom: 40px;
+    }
+
+    #about-hero h1 {
+        font-size: 32px;
+    }
+
+    #about-hero p {
+        font-size: 14px;
+    }
+
+    #mission-section,
+    #developers-section,
+    #resources-section {
+        margin-bottom: 50px;
+    }
+
+    .about-card {
+        padding: 21px;
+    }
+
+    #developers-grid,
+    #resources-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .developer-info {
+        padding: 14px;
+    }
+
+    .developer-info h3 {
+        font-size: 14px;
+    }
+
+    .resource-card {
+        padding: 18px;
+    }
+
+    #developers-header h2,
+    #resources-header h2 {
+        font-size: 24px;
+    }
+}
+
+
+/* ============================================================
+   CELULAR PEQUENO
+   ============================================================ */
+
+@media (max-width: 420px) {
+
+    #developers-grid,
+    #resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #about-hero h1 {
+        font-size: 28px;
+    }
+
+    .about-card {
+        flex-direction: column;
+    }
+
+    #about-final {
+        padding: 30px 20px;
+    }
+}

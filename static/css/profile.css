@@ -1,0 +1,644 @@
+/* ==========================================================
+   PROFILE
+   ========================================================== */
+
+#profile-page {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 45px 0 70px;
+}
+
+
+/* ==========================================================
+   CABEÇALHO DO PERFIL
+   ========================================================== */
+
+#profile-header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================================
+   AVATAR
+   ========================================================== */
+
+#profile-avatar {
+    width: 92px;
+    height: 92px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c6a7,
+            #006f65
+        );
+
+    color: #ffffff;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+#profile-heading {
+    min-width: 0;
+}
+
+#profile-label {
+    margin: 0 0 5px;
+
+    color: #70d9cc;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+#profile-heading h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+}
+
+#profile-email {
+    margin: 7px 0 0;
+
+    color: #8c9a9d;
+
+    font-size: 15px;
+
+    word-break: break-word;
+}
+
+
+/* ==========================================================
+   BOTÃO SAIR
+   ========================================================== */
+
+#logout-button {
+    margin-left: auto;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 12px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#logout-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   CONTEÚDO
+   ========================================================== */
+
+#profile-content {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==========================================================
+   CARDS
+   ========================================================== */
+
+.profile-card {
+    width: 100%;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.22);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ==========================================================
+   CABEÇALHO DOS CARDS
+   ========================================================== */
+
+.card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0, 198, 167, 0.12);
+
+    font-size: 21px;
+}
+
+.card-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 19px;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+
+    color: #7f8c8f;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   INFORMAÇÕES PESSOAIS
+   ========================================================== */
+
+#personal-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.info-item {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.info-label {
+    color: #778487;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.info-item strong {
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+/* ==========================================================
+   DADOS FÍSICOS
+   ========================================================== */
+
+#physical-data {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.physical-item {
+    min-width: 0;
+
+    padding: 16px 12px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+    text-align: center;
+}
+
+.physical-item span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #7f8c8f;
+
+    font-size: 12px;
+}
+
+.physical-item strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    word-break: break-word;
+}
+
+
+/* ==========================================================
+   BOTÃO IMC
+   ========================================================== */
+
+#imc-button {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 17px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00a88f,
+            #00796d
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+#imc-button span {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+#imc-button:hover {
+    filter: brightness(1.1);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   OBJETIVOS
+   ========================================================== */
+
+#goals-card {
+    grid-column: 1 / -1;
+}
+
+#goals-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.goal {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 17px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(0, 0, 0, 0.16);
+}
+
+.goal-check {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 198, 167, 0.15);
+
+    color: #5ee0cf;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.goal strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.goal p {
+    margin: 0;
+
+    color: #7f8c8f;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   RESPONSIVO - TABLET
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+    #profile-page {
+        width: min(100% - 30px, 650px);
+
+        padding-top: 35px;
+    }
+
+
+    #profile-header {
+        flex-wrap: wrap;
+
+        align-items: center;
+    }
+
+
+    #profile-heading {
+        flex: 1;
+
+        min-width: 180px;
+    }
+
+
+    #logout-button {
+        margin-left: 0;
+
+        margin-top: 5px;
+    }
+
+
+    #profile-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    #goals-card {
+        grid-column: auto;
+    }
+
+
+    #goals-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVO - CELULAR
+   ========================================================== */
+
+@media (max-width: 520px) {
+
+    #profile-page {
+        width: calc(100% - 24px);
+
+        padding-top: 25px;
+
+        padding-bottom: 45px;
+    }
+
+
+    #profile-header {
+        gap: 15px;
+
+        margin-bottom: 25px;
+    }
+
+
+    #profile-avatar {
+        width: 70px;
+        height: 70px;
+
+        font-size: 28px;
+    }
+
+
+    #profile-heading h1 {
+        font-size: 24px;
+    }
+
+
+    #profile-label {
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    #profile-email {
+        font-size: 13px;
+    }
+
+
+    #logout-button {
+        width: 100%;
+
+        margin-top: 10px;
+    }
+
+
+    .profile-card {
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+
+    .card-header {
+        gap: 11px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+
+    .card-header h2 {
+        font-size: 17px;
+    }
+
+
+    .card-header p {
+        font-size: 12px;
+    }
+
+
+    #personal-info {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    #physical-data {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .physical-item {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        text-align: left;
+    }
+
+
+    .physical-item span {
+        margin: 0;
+    }
+
+
+    .goal {
+        padding: 14px;
+    }
+
+}
+
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #logout-button,
+    #imc-button {
+        transition: none;
+    }
+
+}

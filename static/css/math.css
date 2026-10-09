@@ -1,0 +1,266 @@
+/* ============================================================
+   FITNESSFY - CALCULADORA NORMAL
+   ============================================================ */
+
+#math-calculator {
+    width: 100%;
+    margin-top: 25px;
+    padding: 28px;
+
+    border: 1px solid rgba(105, 151, 153, 0.13);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.018);
+}
+
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+
+#math-calculator .math-header {
+    margin-bottom: 25px;
+}
+
+#math-calculator .math-header h2 {
+    margin: 0;
+
+    color: #eaf4f3;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#math-calculator .math-header p {
+    margin-top: 7px;
+
+    color: #778b8d;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+
+#math-calculator .math-form {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(150px, 180px)
+        minmax(0, 1fr);
+
+    gap: 14px;
+
+    align-items: end;
+}
+
+
+/* ============================================================
+   CAMPOS
+   ============================================================ */
+
+#math-calculator .math-field {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#math-calculator .math-field label {
+    color: #9cafb1;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#math-calculator .math-field input,
+#math-calculator .math-field select {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(125, 163, 165, 0.18);
+    border-radius: 11px;
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    color: #eaf4f3;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+#math-calculator .math-field input:focus,
+#math-calculator .math-field select:focus {
+    border-color: rgba(93, 228, 208, 0.55);
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+#math-calculator .math-field input::placeholder {
+    color: #526466;
+}
+
+
+/* ============================================================
+   SELECT
+   ============================================================ */
+
+#math-calculator .math-field select {
+    cursor: pointer;
+}
+
+#math-calculator .math-field select option {
+    background: #071412;
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   BOTÃO
+   ============================================================ */
+
+#math-calculator #math-submit {
+    width: 100%;
+    min-height: 46px;
+
+    margin-top: 20px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: #5de4d0;
+    color: #001512;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+#math-calculator #math-submit:hover {
+    transform: translateY(-2px);
+
+    background: #7cebdd;
+}
+
+#math-calculator #math-submit:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   ERRO
+   ============================================================ */
+
+#math-calculator #math-error {
+    min-height: 18px;
+
+    margin-top: 12px;
+
+    color: #ff8585;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   RESULTADO
+   ============================================================ */
+
+#math-calculator #math-result {
+    width: 100%;
+
+    margin-top: 20px;
+    padding: 18px;
+
+    border: 1px solid rgba(93, 228, 208, 0.12);
+    border-radius: 13px;
+
+    background: rgba(93, 228, 208, 0.035);
+}
+
+#math-calculator #math-result-label {
+    display: block;
+
+    color: #667b7d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#math-calculator #math-result-value {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #5de4d0;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    #math-calculator {
+        padding: 22px;
+    }
+
+    #math-calculator .math-form {
+        grid-template-columns: 1fr;
+    }
+
+    #math-calculator #math-submit {
+        margin-top: 5px;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    #math-calculator {
+        padding: 18px;
+    }
+
+    #math-calculator .math-header h2 {
+        font-size: 20px;
+    }
+
+    #math-calculator .math-field input,
+    #math-calculator .math-field select {
+        height: 44px;
+    }
+
+}

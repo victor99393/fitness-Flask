@@ -1,0 +1,835 @@
+/* ============================================================
+   FITNESSFY - PÁGINA DE IMC
+   ============================================================ */
+
+#imc-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 70px;
+}
+
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+
+#imc-header {
+    margin-bottom: 30px;
+}
+
+#imc-label {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: #5de4d0;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#imc-header h1 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#imc-header p {
+    margin: 0;
+
+    color: #8d9b9e;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   RESULTADO DO IMC
+   ============================================================ */
+
+#imc-result-card {
+    width: 100%;
+
+    margin-bottom: 25px;
+    padding: 28px;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+#imc-result-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+#imc-result-top > div {
+    min-width: 0;
+}
+
+.result-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #7f9093;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#imc-value {
+    display: block;
+
+    color: #39d98a;
+
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#imc-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(57, 217, 138, 0.3);
+    border-radius: 999px;
+
+    background: rgba(57, 217, 138, 0.12);
+
+    color: #39d98a;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   MEDIDOR DO IMC
+   ============================================================ */
+
+#imc-scale-container {
+    width: 100%;
+    margin-top: 32px;
+}
+
+#imc-scale {
+    position: relative;
+
+    width: 100%;
+    height: 16px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        to right,
+        #4da3ff 0%,
+        #4da3ff 33.33%,
+        #39d98a 33.33%,
+        #39d98a 53.33%,
+        #f5c451 53.33%,
+        #f5c451 66.66%,
+        #ff5c5c 66.66%,
+        #ff5c5c 100%
+    );
+}
+
+/* Os spans existentes no HTML não interferem na barra */
+#imc-scale > span {
+    display: none;
+}
+
+/* Marcador */
+#imc-marker {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    transform: translate(-50%, -50%);
+
+    border: 3px solid #001f1c;
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.35);
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+#imc-scale-labels {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    color: #687679;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   INFORMAÇÕES DO USUÁRIO
+   ============================================================ */
+
+#imc-information {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.imc-info-card {
+    min-width: 0;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border: 1px solid #183436;
+    border-radius: 14px;
+
+    background: rgba(5, 22, 22, 0.72);
+}
+
+.imc-info-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 18px;
+}
+
+.imc-info-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #718386;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.imc-info-card strong {
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+/* ============================================================
+   CABEÇALHOS DAS SEÇÕES
+   ============================================================ */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 22px;
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 18px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 19px;
+}
+
+.section-heading p {
+    margin: 4px 0 0;
+
+    color: #7f9093;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   PESO DE REFERÊNCIA
+   ============================================================ */
+
+#ideal-weight-card {
+    width: 100%;
+
+    margin-bottom: 25px;
+    padding: 28px;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+}
+
+#ideal-weight {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+#ideal-weight strong {
+    padding: 15px 20px;
+
+    border: 1px solid rgba(93, 228, 208, 0.12);
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+#ideal-weight span {
+    color: #687679;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   GORDURA CORPORAL
+   ============================================================ */
+
+#body-fat-card {
+    width: 100%;
+
+    margin-bottom: 25px;
+    padding: 28px;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+}
+
+#body-fat-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #183436;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+#body-fat-result strong {
+    color: #39d98a;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#body-fat-result span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border: 1px solid rgba(57, 217, 138, 0.25);
+    border-radius: 999px;
+
+    background: rgba(57, 217, 138, 0.1);
+
+    color: #39d98a;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   RECOMENDAÇÃO
+   ============================================================ */
+
+#recommendation-card {
+    width: 100%;
+
+    margin-bottom: 25px;
+    padding: 20px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    border: 1px solid rgba(57, 217, 138, 0.18);
+    border-radius: 14px;
+
+    background: rgba(57, 217, 138, 0.06);
+}
+
+#recommendation-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(57, 217, 138, 0.1);
+
+    font-size: 18px;
+}
+
+#recommendation-card h2 {
+    margin: 0 0 7px;
+
+    color: #39d98a;
+
+    font-size: 14px;
+}
+
+#recommendation-card p {
+    margin: 0;
+
+    color: #b8c5c7;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   CALCULADORA NORMAL
+   ============================================================ */
+
+#normal-calculator {
+    width: 100%;
+
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+#calculator-section-header {
+    margin-bottom: 18px;
+}
+
+#calculator-section-header > span {
+    color: #5de4d0;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#calculator-section-header h2 {
+    margin: 7px 0 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+#calculator-section-header p {
+    margin: 6px 0 0;
+
+    color: #7f9093;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   CALCULADORA DE IMC
+   ============================================================ */
+
+#imc-calculator {
+    width: 100%;
+
+    margin-top: 40px;
+    padding: 28px;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+#calculator-header {
+    margin-bottom: 25px;
+}
+
+#calculator-label {
+    color: #5de4d0;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#calculator-header h2 {
+    margin: 7px 0 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+#calculator-header p {
+    margin: 6px 0 0;
+
+    color: #7f9093;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   FORMULÁRIO DO IMC
+   ============================================================ */
+
+#imc-calculator #imc-form {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+#imc-calculator .imc-form-group {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#imc-calculator .imc-form-group label {
+    margin-bottom: 8px;
+
+    color: #c7d1d3;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#imc-calculator .imc-form-group input,
+#imc-calculator .imc-form-group select {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #26383a;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #071617;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+#imc-calculator .imc-form-group input::placeholder {
+    color: #536366;
+}
+
+#imc-calculator .imc-form-group input:hover,
+#imc-calculator .imc-form-group select:hover {
+    background: #0a1c1d;
+
+    border-color: #3c5659;
+}
+
+#imc-calculator .imc-form-group input:focus,
+#imc-calculator .imc-form-group select:focus {
+    border-color: #39d98a;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 217, 138, 0.12);
+}
+
+#imc-calculator .imc-form-group select option {
+    background: #071617;
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   ERRO DA CALCULADORA DE IMC
+   ============================================================ */
+
+#imc-calculator #imc-error {
+    grid-column: 1 / -1;
+
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ff8b8b;
+
+    font-size: 12px;
+}
+
+#imc-calculator #imc-error:not(:empty) {
+    margin-top: -4px;
+}
+
+
+/* ============================================================
+   BOTÃO DA CALCULADORA DE IMC
+   ============================================================ */
+
+#imc-calculator #imc-submit {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding: 0 20px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #39d98a;
+    color: #00110c;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+}
+
+#imc-calculator #imc-submit:hover {
+    background: #4be59a;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(57, 217, 138, 0.15);
+}
+
+#imc-calculator #imc-submit:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   VOLTAR PARA O PERFIL
+   ============================================================ */
+
+#back-profile {
+    display: inline-flex;
+    align-items: center;
+
+    margin-top: 15px;
+
+    color: #5de4d0;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s,
+        transform 0.2s;
+}
+
+#back-profile:hover {
+    color: #8aeee1;
+
+    transform: translateX(-2px);
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+    #imc-information {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    #imc-page {
+        padding: 30px 15px 50px;
+    }
+
+    #imc-header h1 {
+        font-size: 28px;
+    }
+
+    #imc-result-card,
+    #ideal-weight-card,
+    #body-fat-card,
+    #imc-calculator {
+        padding: 22px 18px;
+    }
+
+    #imc-result-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #imc-value {
+        font-size: 40px;
+    }
+
+    #imc-scale-labels {
+        font-size: 10px;
+    }
+
+    #ideal-weight {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #ideal-weight strong {
+        text-align: center;
+    }
+
+    #body-fat-result {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #imc-calculator #imc-form {
+        grid-template-columns: 1fr;
+    }
+
+    #imc-calculator #imc-submit {
+        grid-column: auto;
+    }
+
+    #imc-calculator #imc-error {
+        grid-column: auto;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    #imc-page {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #imc-result-card,
+    #ideal-weight-card,
+    #body-fat-card,
+    #imc-calculator {
+        padding: 20px 15px;
+        border-radius: 14px;
+    }
+
+    #imc-information {
+        gap: 10px;
+    }
+
+    .imc-info-card {
+        padding: 15px;
+    }
+
+    #calculator-section-header h2,
+    #calculator-header h2 {
+        font-size: 21px;
+    }
+
+}
