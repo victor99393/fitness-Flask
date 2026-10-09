@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Calculadoras - FitnessFY
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/imc.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/math.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% include "header.html" %}
+
+<section id="imc-page">
+
+    <!-- CABEÇALHO -->
+    <section id="imc-header">
+
+        <span id="imc-label">
+            FITNESSFY
+        </span>
+
+        <h1>
+            Calculadoras
+        </h1>
+
+        <p>
+            Consulte seu IMC ou faça cálculos de forma rápida e simples.
+        </p>
+
+    </section>
+
+
+    <!-- RESULTADO DO IMC -->
+    <section id="imc-result-card">
+
+        <div id="imc-result-top">
+
+            <div>
+
+                <span class="result-label">
+                    SEU IMC
+                </span>
+
+                <strong id="imc-value">
+                    {{ imc }}
+                </strong>
+
+            </div>
+
+            <span id="imc-badge">
+                {{ classificacao }}
+            </span>
+
+        </div>
+
+
+        <!-- ESCALA DO IMC -->
+        <div id="imc-scale-container">
+
+            <div id="imc-scale">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <div
+                    id="imc-marker"
+                    style="left: {{ marcador }}%;"
+                ></div>
+
+            </div>
+
+            <div id="imc-scale-labels">
+
+                <span>
+                    Abaixo
+                </span>
+
+                <span>
+                    Normal
+                </span>
+
+                <span>
+                    Sobrepeso
+                </span>
+
+                <span>
+                    Obesidade
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DADOS -->
+    <section id="imc-information">
+
+        <article class="imc-info-card">
+
+            <span class="imc-info-icon">
+                ⚖️
+            </span>
+
+            <div>
+
+                <span class="imc-info-label">
+                    PESO
+                </span>
+
+                <strong>
+                    {{ peso }} kg
+                </strong>
+
+            </div>
+
+        </article>
+
+
+        <article class="imc-info-card">
+
+            <span class="imc-info-icon">
+                📏
+            </span>
+
+            <div>
+
+                <span class="imc-info-label">
+                    ALTURA
+                </span>
+
+                <strong>
+                    {{ altura }} m
+                </strong>
+
+            </div>
+
+        </article>
+
+
+        <article class="imc-info-card">
+
+            <span class="imc-info-icon">
+                🎂
+            </span>
+
+            <div>
+
+                <span class="imc-info-label">
+                    IDADE
+                </span>
+
+                <strong>
+                    {{ idade }} anos
+                </strong>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- PESO DE REFERÊNCIA -->
+    <section id="ideal-weight-card">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                ⚖️
+            </span>
+
+            <div>
+
+                <h2>
+                    Faixa de peso de referência
+                </h2>
+
+                <p>
+                    Calculada a partir da sua altura.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="ideal-weight">
+
+            <strong>
+                {{ peso_min }} kg
+            </strong>
+
+            <span>
+                até
+            </span>
+
+            <strong>
+                {{ peso_max }} kg
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- GORDURA CORPORAL -->
+    <section id="body-fat-card">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                📊
+            </span>
+
+            <div>
+
+                <h2>
+                    Estimativa de gordura corporal
+                </h2>
+
+                <p>
+                    Estimativa baseada no método de Deurenberg.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="body-fat-result">
+
+            <strong>
+                {{ gordura }}%
+            </strong>
+
+            <span>
+                {{ gordura_classificacao }}
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECOMENDAÇÃO -->
+    <section id="recommendation-card">
+
+        <span id="recommendation-icon">
+            💡
+        </span>
+
+        <div>
+
+            <h2>
+                Recomendação
+            </h2>
+
+            <p>
+                {{ recomendacao }}
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CALCULADORA NORMAL
+         ===================================================== -->
+
+    <section id="normal-calculator">
+
+        <div id="calculator-section-header">
+
+            <span>
+                CALCULADORA
+            </span>
+
+            <h2>
+                Calculadora normal
+            </h2>
+
+            <p>
+                Faça operações matemáticas de forma simples.
+            </p>
+
+        </div>
+
+        {% include "math.html" %}
+
+    </section>
+
+
+    <!-- =====================================================
+         CALCULADORA DE IMC
+         ===================================================== -->
+
+    <section id="imc-calculator">
+
+        <div id="calculator-header">
+
+            <span id="calculator-label">
+                IMC
+            </span>
+
+            <h2>
+                Calculadora de IMC
+            </h2>
+
+            <p>
+                Informe seus dados para calcular novamente seu IMC.
+            </p>
+
+        </div>
+
+
+        <form id="imc-form">
+
+            <div class="imc-form-group">
+
+                <label for="peso">
+                    Peso (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="peso"
+                    step="0.1"
+                    min="1"
+                    placeholder="Ex.: 70"
+                    value="{{ peso }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="imc-form-group">
+
+                <label for="altura">
+                    Altura (m)
+                </label>
+
+                <input
+                    type="number"
+                    id="altura"
+                    step="0.01"
+                    min="0.5"
+                    placeholder="Ex.: 1.75"
+                    value="{{ altura }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="imc-form-group">
+
+                <label for="idade">
+                    Idade
+                </label>
+
+                <input
+                    type="number"
+                    id="idade"
+                    min="1"
+                    max="120"
+                    placeholder="Ex.: 18"
+                    value="{{ idade }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="imc-form-group">
+
+                <label for="sexo">
+                    Sexo
+                </label>
+
+                <select id="sexo">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option value="masculino">
+                        Masculino
+                    </option>
+
+                    <option value="feminino">
+                        Feminino
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <p id="imc-error"></p>
+
+
+            <button
+                type="submit"
+                id="imc-submit"
+            >
+                Calcular IMC
+                <span>→</span>
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- VOLTAR PARA O PERFIL -->
+    <a
+        href="{{ url_for('profile', user_id=user_id) }}"
+        id="back-profile"
+    >
+        ← Voltar para o perfil
+    </a>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("imc-form");
+
+    const pesoInput = document.getElementById("peso");
+    const alturaInput = document.getElementById("altura");
+    const idadeInput = document.getElementById("idade");
+    const sexoInput = document.getElementById("sexo");
+    const error = document.getElementById("imc-error");
+
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        error.textContent = "";
+
+
+        const peso = parseFloat(pesoInput.value);
+        const altura = parseFloat(alturaInput.value);
+        const idade = parseInt(idadeInput.value);
+
+
+        if (
+            isNaN(peso) ||
+            isNaN(altura) ||
+            isNaN(idade)
+        ) {
+            error.textContent = "Preencha todos os campos.";
+            return;
+        }
+
+
+        if (
+            peso <= 0 ||
+            altura <= 0 ||
+            idade <= 0
+        ) {
+            error.textContent = "Informe valores válidos.";
+            return;
+        }
+
+
+        const sexo = sexoInput.value;
+
+
+        let url =
+            "{{ url_for('imc', user_id=user_id, peso=0, altura=0) }}";
+
+
+        url = url.replace(
+            "/0/0",
+            "/" + peso + "/" + altura
+        );
+
+
+        url +=
+            "?idade=" +
+            encodeURIComponent(idade) +
+            "&sexo=" +
+            encodeURIComponent(sexo);
+
+
+        window.location.href = url;
+
+    });
+
+});
+
+</script>
+
+{% endblock %}
