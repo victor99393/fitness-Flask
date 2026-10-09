@@ -1,0 +1,22 @@
+[
+    {
+        "id": "usr_victor001",
+        "nome": "Victor",
+        "email": "victor@email.com",
+        "senha": "123456",
+        "idade": 22,
+        "peso": 72.5,
+        "altura": 1.75,
+        "imc": 23.67
+    },
+    {
+        "id": "usr_rithye001",
+        "nome": "RITHYE",
+        "email": "rithye@gmail.com",
+        "senha": "rith123",
+        "idade": 24,
+        "peso": 65.0,
+        "altura": 1.68,
+        "imc": 23.03
+    }
+]
